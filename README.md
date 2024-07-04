@@ -4,7 +4,7 @@ All assignments can be found here.
 ```bash
 git clone git@github.com:monicaharutyunyan/Picsart-academy.git
 cd Picsart-academy
-cd Homework_DATA
+cd Homeworks/Homework_Month_Day
 make #build
 make fclean #delete all *.o files and exe
 make re #rebuild
