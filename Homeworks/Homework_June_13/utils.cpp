@@ -59,11 +59,11 @@ void input_numbers_sum()
 			std::cout << "Enter a number (entered " << count << "): ";
 			std::cin >> num;
 			if(!std::cin)
-		{
-			std::cout << "It's not a number, try again" << std::endl;
-			std::cin.clear();
-			std::cin.ignore(10000,'\n');
-		}
+			{
+				std::cout << "It's not a number, try again" << std::endl;
+				std::cin.clear();
+				std::cin.ignore(10000,'\n');
+			}
 			
 			else
 				break;	
