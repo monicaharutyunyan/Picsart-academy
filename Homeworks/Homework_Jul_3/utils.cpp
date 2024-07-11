@@ -72,7 +72,9 @@ void Task4()
 	char		str[size] = {};
 	char		*ptr = str;
 	std::cout << "Enter a line with a special symbols: ";
+	std::cin.clear();
 	std::cin.getline(str, size);
+	std::cin.ignore(10000, '\n');
 	while(*ptr)
 	{
 		if ((*ptr < 48) || (*ptr > 57 && *ptr < 65) || (*ptr > 90 && *ptr < 97) || (*ptr > 122))
