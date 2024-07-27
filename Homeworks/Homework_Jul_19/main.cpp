@@ -69,7 +69,10 @@ int main()
 	std::cout << "---------------------- Task 8 ----------------------" << std::endl; 
 	std::cout << "Addition of up to main diagonals members: " << sumOfValuesUpMainDiagonals(matrix, rows, cols) << std::endl;
 	for (int i = 0; i < rows; ++i)
+	{
 		delete [] matrix[i];
+		matrix[i] = nullptr;
+	}
 	delete[] matrix;
 	matrix = nullptr;
 	return 0;
