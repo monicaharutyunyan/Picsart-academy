@@ -1,18 +1,16 @@
-NAME = homework
-
-OBJS_DIR = obj
+NAME = classwork
 
 CPP = g++ -std=c++20
 
 CPPFLAGS = -Wall -Wextra -Werror
 
-SRCS = $(wildcard src/*.cpp)
+SRCS = $(wildcard *.cpp)
 
-OBJS = $(patsubst src/%.cpp, ./(OBJS_DIR)/%.o, $(SRCS))
+OBJS = $(patsubst %.cpp, %.o, $(SRCS))
 
 RM = rm -f
 
-./(OBJS_DIR)/%.o : ./src/%.cpp
+%.o : %.cpp
 	@ $(CPP) $(CPPFLAGS) -c $< -o $@
 
 all: $(NAME)

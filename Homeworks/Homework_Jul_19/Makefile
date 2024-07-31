@@ -1,37 +1,53 @@
 NAME = homework
 
-CPP = g++
+UNAME := $(shell uname)
 
-CPPFLAGS = -Wall -Wextra -Werror
+TMP = objs
 
-SRCS = $(wildcard *.cpp)
+ifeq ($(UNAME), Linux)
+CXX = g++ -std=c++20
+else
+CXX = g++ -std=c++20
+endif
 
-OBJS = $(patsubst %.cpp, %.o, $(SRCS))
+CXXFLAGS = -I./includes -Wall -Wextra -Werror #-fsanitize=address -g
 
-RM = rm -f
+SRCS = $(wildcard src/*.cpp)
 
-%.o : %.cpp
-	@ $(CPP) $(CPPFLAGS) -c $< -o $@
+OBJS = $(patsubst src/%.cpp, ./$(TMP)/%.o, $(SRCS))
+
+RM = rm -fr
+
+HEADER = $(wildcard *.h)
+HEADER += $(wildcard includes/*.h)
 
 all: $(NAME)
 
-$(NAME) : $(OBJS)
-	@ $(CPP) -o $(NAME) $(OBJS) $(CPPFLAGS) 
+./$(TMP)/%.o: ./src/%.cpp $(HEADER) Makefile
+	@ $(CXX) $(CXXFLAGS) -o $@ -c $<
+
+$(NAME): $(TMP) $(OBJS)
+	@ $(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+
+$(TMP):
+	@mkdir $(TMP)
 	@echo "$(GREEN)✅$(NAME) created!$(DEFAULT)"
+
 clean:
-	@ $(RM) $(OBJS)
+	@ $(RM) $(TMP)
 	@echo "$(YELLOW)Object files deleted!$(DEFAULT)"
+
 fclean: clean
 	@ $(RM) $(NAME)
 	@echo "$(RED)All deleted!$(DEFAULT)"
 
-re: fclean all
+re:	fclean all
 
-.PHONY: all clean fclean re
-
-
+.PHONY: all clean fclean re bonus
 RED = \033[1;31m
 GREEN = \033[1;32m
 YELLOW = \033[1;33m
 DEFAULT = \033[0m
+
+
 
