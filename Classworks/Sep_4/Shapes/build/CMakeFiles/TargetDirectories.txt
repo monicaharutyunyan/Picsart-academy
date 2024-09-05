@@ -1,3 +1,0 @@
-/Users/monicaharutyunyan/Picsart-academy/Classworks/Sep_4/Shapes/build/CMakeFiles/homework.dir
-/Users/monicaharutyunyan/Picsart-academy/Classworks/Sep_4/Shapes/build/CMakeFiles/edit_cache.dir
-/Users/monicaharutyunyan/Picsart-academy/Classworks/Sep_4/Shapes/build/CMakeFiles/rebuild_cache.dir
